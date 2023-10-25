@@ -87,6 +87,10 @@ type variableProperties struct {
 			Cflags []string `android:"arch_variant"`
 		} `android:"arch_variant"`
 
+		Device_has_arm_mte struct {
+			Cflags []string
+		}
+
 		Safestack struct {
 			Cflags []string `android:"arch_variant"`
 		} `android:"arch_variant"`
@@ -294,6 +298,7 @@ type ProductVariables struct {
 	Malloc_scudo_tsds_max        *bool    `json:",omitempty"`
 	Malloc_zero_contents         *bool    `json:",omitempty"`
 	Malloc_pattern_fill_contents *bool    `json:",omitempty"`
+	Device_has_arm_mte           *bool    `json:",omitempty"`
 	Safestack                    *bool    `json:",omitempty"`
 	HostStaticBinaries           *bool    `json:",omitempty"`
 	Binder32bit                  *bool    `json:",omitempty"`
@@ -875,6 +880,7 @@ func (v *ProductVariables) SetDefaultConfig() {
 		Malloc_scudo_tsds_max:        boolPtr(false),
 		Malloc_zero_contents:         boolPtr(true),
 		Malloc_pattern_fill_contents: boolPtr(false),
+		Device_has_arm_mte:           boolPtr(false),
 		Safestack:                    boolPtr(false),
 		Build_from_text_stub:         boolPtr(false),
 
