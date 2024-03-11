@@ -30,7 +30,6 @@ var (
 		// branch-protection=bti,pac-ret is equivalent to Clang's mbranch-protection=standard
 		"branchprot": {
 			"-Z branch-protection=bti,pac-ret",
-			"-Z stack-protector=none",
 		},
 	}
 	Arm64LinkFlags = []string{}
