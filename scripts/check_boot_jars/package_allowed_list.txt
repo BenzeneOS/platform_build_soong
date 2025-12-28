@@ -268,3 +268,8 @@ org\.chromium\.arc\..*
 # Packages used for wear-sdk in Wear OS
 com\.google\.wear
 com\.google\.wear\..*
+
+###################################################
+# Benzene battery HAL
+vendor\.benzeneos\.battery
+vendor\.benzeneos\.battery\..*
