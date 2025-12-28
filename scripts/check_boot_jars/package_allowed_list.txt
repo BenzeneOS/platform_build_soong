@@ -207,8 +207,12 @@ org\.chromium\.arc\..*
 # Packages used for wear-sdk in Wear OS
 com\.google\.wear
 com\.google\.wear\..*
-
 ###################################################
 # Packages used for display offload in Wear OS
 vendor\.google_clockwork\.displayoffload3
 vendor\.google_clockwork\.displayoffload3\..*
+
+###################################################
+# Benzene battery HAL
+vendor\.benzeneos\.battery
+vendor\.benzeneos\.battery\..*
