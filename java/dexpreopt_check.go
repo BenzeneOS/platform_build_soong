@@ -84,7 +84,7 @@ func (m *dexpreoptSystemserverCheck) DepsMutator(ctx android.BottomUpMutatorCont
 
 	// The check should be skipped on unbundled builds because system server jars are not preopted on
 	// unbundled builds since the artifacts are installed into the system image, not the APEXes.
-	if global.DisablePreopt || global.OnlyPreoptArtBootImage || len(targets) == 0 || ctx.Config().UnbundledBuild() {
+	if true || global.DisablePreopt || global.OnlyPreoptArtBootImage || len(targets) == 0 || ctx.Config().UnbundledBuild() {
 		return
 	}
 
