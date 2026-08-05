@@ -133,8 +133,7 @@ func addPathDepsForProps(ctx BottomUpMutatorContext, props []interface{}) {
 	}
 	// properties tagged "path_host_second" get the host 2nd os variant
 	if len(pathHostSecondProperties) > 0 {
-		var targets []Target
-		targets, _ = decodeMultilibTargets("32", ctx.Config().Targets[ctx.Config().BuildOS], false)
+		targets, _ := decodeMultilibTargets("32", ctx.Config().Targets[ctx.Config().BuildOS], false)
 		// If a 32-bit host target exists, add the dependencies. Otherwise, do nothing.
 		// This is necessary to support host OSes like Darwin (macOS) that do not
 		// have a 32-bit multilib target.

@@ -2096,6 +2096,14 @@ func FirstTarget(targets []Target, filters ...string) []Target {
 	return ret
 }
 
+// HasHostSecondArchTarget reports whether a 32-bit variant of the build OS exists. Host OSes
+// without one, such as Darwin, must skip properties that resolve against the second host
+// architecture rather than fail to find it.
+func HasHostSecondArchTarget(config Config) bool {
+	targets, err := decodeMultilibTargets("32", config.Targets[config.BuildOS], false)
+	return err == nil && len(targets) > 0
+}
+
 // decodeMultilibTargets uses the module's multilib setting to select one or more targets from a
 // list of Targets.
 func decodeMultilibTargets(multilib string, targets []Target, prefer32 bool) ([]Target, error) {
