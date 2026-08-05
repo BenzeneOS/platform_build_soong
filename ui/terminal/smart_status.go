@@ -96,12 +96,10 @@ func NewSmartStatusOutput(w io.Writer,
 	}
 
 	if s.tableMode {
-		// Add empty lines at the bottom of the screen to scroll back the existing history
-		// and make room for the action table.
-		// TODO: read the cursor position to see if the empty lines are necessary?
-		for i := 0; i < s.tableHeight; i++ {
-			fmt.Fprintln(w)
-		}
+		// Scroll back the existing history to make room for the action table. Writing newlines
+		// would put the blank lines in anything capturing the output, and the scroll has to
+		// happen even when the cursor is not at the bottom of the screen.
+		fmt.Fprint(w, ansi.panDown(s.tableHeight))
 
 		// Hide the cursor to prevent seeing it bouncing around
 		fmt.Fprintf(s.writer, ansi.hideCursor())
